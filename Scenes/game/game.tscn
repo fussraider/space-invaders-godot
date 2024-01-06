@@ -1,0 +1,67 @@
+[gd_scene load_steps=15 format=3 uid="uid://b8rxa1ledxa8j"]
+
+[ext_resource type="PackedScene" uid="uid://ra17p5xkdvna" path="res://Scenes/bunker/bunker.tscn" id="1_2lal4"]
+[ext_resource type="Script" path="res://Scenes/game/game.gd" id="1_v4xv1"]
+[ext_resource type="PackedScene" uid="uid://b1u5yghbewopx" path="res://Scenes/player/player.tscn" id="2_05sxo"]
+[ext_resource type="PackedScene" uid="uid://3gs3oo14pey3" path="res://Scenes/projectile/laser.tscn" id="3_c8x6u"]
+[ext_resource type="PackedScene" uid="uid://b5jiew7xpec24" path="res://Scenes/invaders/invaders.tscn" id="3_s6q5k"]
+[ext_resource type="PackedScene" uid="uid://bm03tgmaskhxl" path="res://Scenes/invader/invader_01.tscn" id="3_uqep7"]
+[ext_resource type="PackedScene" uid="uid://dhdbhv6goxa2i" path="res://Scenes/invader/invader_02.tscn" id="4_8ysul"]
+[ext_resource type="PackedScene" uid="uid://d2vbgtdjgb88h" path="res://Scenes/mystery_ships/mystery_ships.tscn" id="5_brfu0"]
+[ext_resource type="PackedScene" uid="uid://bog66g510yc8e" path="res://Scenes/mystery_ship/mystery_ship.tscn" id="5_dd70k"]
+[ext_resource type="PackedScene" uid="uid://cxfpw48cl47hx" path="res://Scenes/invader/invader_03.tscn" id="5_wsqlf"]
+[ext_resource type="PackedScene" uid="uid://bm5yaw1jtbwo" path="res://Scenes/wall/wall.tscn" id="7_appas"]
+[ext_resource type="PackedScene" uid="uid://cco1mrelrc5vw" path="res://Scenes/projectile/missile.tscn" id="9_hlaxj"]
+[ext_resource type="PackedScene" uid="uid://fj8p3c7pqken" path="res://Scenes/hud/hud.tscn" id="10_ykon5"]
+
+[sub_resource type="Curve" id="Curve_3wa1i"]
+min_value = 15.0
+max_value = 80.0
+_data = [Vector2(0, 15), 0.0, 0.0, 0, 0, Vector2(1, 80), 4.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_v4xv1")
+metadata/_edit_vertical_guides_ = [102.0, 410.0, 204.0, 308.0, 256.0]
+metadata/_edit_horizontal_guides_ = [449.0, 26.0, 135.0]
+
+[node name="Bunker" parent="." instance=ExtResource("1_2lal4")]
+position = Vector2(100, 433)
+
+[node name="Bunker2" parent="." instance=ExtResource("1_2lal4")]
+position = Vector2(200, 433)
+
+[node name="Bunker3" parent="." instance=ExtResource("1_2lal4")]
+position = Vector2(300, 433)
+
+[node name="Bunker4" parent="." instance=ExtResource("1_2lal4")]
+position = Vector2(400, 433)
+
+[node name="Player" parent="." instance=ExtResource("2_05sxo")]
+position = Vector2(256, 493)
+laserScene = ExtResource("3_c8x6u")
+
+[node name="MysteryShips" parent="." instance=ExtResource("5_brfu0")]
+mysteryShipScene = ExtResource("5_dd70k")
+
+[node name="Invaders" parent="." instance=ExtResource("3_s6q5k")]
+position = Vector2(256, 135)
+invaderScenes = Array[PackedScene]([ExtResource("3_uqep7"), ExtResource("3_uqep7"), ExtResource("4_8ysul"), ExtResource("4_8ysul"), ExtResource("5_wsqlf")])
+missileScene = ExtResource("9_hlaxj")
+speed = SubResource("Curve_3wa1i")
+
+[node name="WallTop" parent="." instance=ExtResource("7_appas")]
+position = Vector2(256, -10)
+
+[node name="WallBottom" parent="." instance=ExtResource("7_appas")]
+position = Vector2(256, 523)
+
+[node name="WallLeft" parent="." instance=ExtResource("7_appas")]
+position = Vector2(-10, 256)
+rotation = 1.5708
+
+[node name="WallRight" parent="." instance=ExtResource("7_appas")]
+position = Vector2(523, 256)
+rotation = 1.5708
+
+[node name="HUD" parent="." instance=ExtResource("10_ykon5")]

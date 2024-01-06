@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs5a871g421tf"]
+
+[ext_resource type="Script" path="res://Scenes/invader/invader_base.gd" id="1_05bno"]
+
+[node name="InvaderBase" type="StaticBody2D" groups=["invader"]]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_05bno")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-18, 2.08165e-12)
+
+[node name="RayCast2DRight" type="RayCast2D" parent="."]
+target_position = Vector2(18, 2.08165e-12)
+
+[node name="RayCast2DDown" type="RayCast2D" parent="."]
+target_position = Vector2(2.08165e-12, 10)
+collision_mask = 3

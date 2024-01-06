@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bog66g510yc8e"]
+
+[ext_resource type="Texture2D" uid="uid://e668c0wjpuy2" path="res://Sprites/MysteryShip.png" id="1_8firw"]
+[ext_resource type="Script" path="res://Scenes/mystery_ship/mystery_ship.gd" id="1_xf13g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbcaq"]
+radius = 8.0
+height = 32.0
+
+[node name="MysteryShip" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_xf13g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.333333, 0.266667, 1)
+texture = ExtResource("1_8firw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rbcaq")
+
+[node name="RayCast2DRight" type="RayCast2D" parent="."]
+target_position = Vector2(22, 2.08165e-12)
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-22, 2.08165e-12)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ra17p5xkdvna"]
+
+[ext_resource type="Texture2D" uid="uid://k77m5a0q1mv7" path="res://Sprites/Bunker.png" id="1_8altq"]
+[ext_resource type="Script" path="res://Scenes/bunker/bunker.gd" id="1_wcalx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k842b"]
+radius = 16.0
+height = 44.0
+
+[node name="Bunker" type="StaticBody2D"]
+script = ExtResource("1_wcalx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.980392, 0, 1)
+texture = ExtResource("1_8altq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_k842b")

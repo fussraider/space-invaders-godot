@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2vbgtdjgb88h"]
+
+[ext_resource type="Script" path="res://Scenes/mystery_ships/mystery_ships.gd" id="1_ooyjv"]
+
+[node name="MysteryShips" type="Node2D"]
+position = Vector2(256, 42)
+script = ExtResource("1_ooyjv")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true

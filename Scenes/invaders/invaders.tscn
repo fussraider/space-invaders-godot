@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5jiew7xpec24"]
+
+[ext_resource type="Script" path="res://Scenes/invaders/invaders.gd" id="1_d42c1"]
+
+[node name="Invaders" type="Node2D" groups=["invaders"]]
+position = Vector2(250, 75)
+script = ExtResource("1_d42c1")
+
+[node name="BlockTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+autostart = true
